@@ -46,6 +46,7 @@ type Health struct {
 	TransmissionDiscard TransmissionDiscard `json:"transmission_discard"`
 }
 type WifiClient struct {
+	User                       string   `json:"user,omitempty"`
 	IP                         string   `json:"ip"`
 	IP6                        []string `json:"ip6"`
 	WtpName                    string   `json:"wtp_name"`
