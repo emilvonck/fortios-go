@@ -46,3 +46,21 @@ func TestGetWifiClient(t *testing.T) {
 		assert.Equal(t, "success", res.Status, "expecting success Status")
 	}
 }
+
+func TestGetManagedSwitch(t *testing.T) {
+	c := NewClient(os.Getenv("FORTIOS_INTEGRATION_API_KEY"), os.Getenv("FORTIOS_INTEGRATION_FIREWALL"))
+
+	ctx := context.Background()
+	res, err := c.GetManagedSwitch(ctx)
+	assert.Nil(t, err, "expecting nil error")
+	assert.NotNil(t, res, "expecting non-nil result")
+	if res != nil {
+		assert.Equal(t, "switch-controller", res.Path, "expecting correct Path")
+	}
+	if res != nil {
+		assert.Equal(t, "GET", res.HTTPMethod, "expecting correct HTTPMethod")
+	}
+	if res != nil {
+		assert.Equal(t, "success", res.Status, "expecting success Status")
+	}
+}
